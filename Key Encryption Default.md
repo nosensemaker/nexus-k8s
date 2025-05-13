@@ -134,6 +134,8 @@ spec:
 
 Para garantir que tudo funcione corretamente, você pode recriar os recursos:
 
+Deletar
+
 ```bash
 kubectl delete deployment nexus -n nexus-3
 kubectl delete service nexus -n nexus-3
