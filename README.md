@@ -105,7 +105,6 @@ spec:
           configMap:
             name: nexus-config
 ```
-```
 
 ## 5. Recriando Recursos (Opcional)
 
@@ -134,8 +133,6 @@ Para verificar se tudo está funcionando corretamente:
 ```bash
 kubectl get all -n nexus-3
 ```
-
-
 
 ## Re-encriptando via API
 
