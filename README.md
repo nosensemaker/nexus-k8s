@@ -53,10 +53,27 @@ data:
 
 ## 4. Configurando o Deployment
 
-* Certifique-se de que o seu nexus-deployment.yaml está montando o ConfigMap corretamente:
-* Exemplo de configuração testada e funcional:
+Nesta etapa, configuraremos o Deployment do Nexus para garantir que o ConfigMap com as configurações de encriptação seja corretamente montado e utilizado pelo Nexus.
 
-```yaml
+### Verificando o ConfigMap
+
+* Certifique-se de que o ConfigMap `nexus-config` foi criado corretamente e contém os dados de configuração esperados (como a chave de encriptação no arquivo `nexus.properties` e o JSON com as chaves no `nexus.secrets.json`).
+* Use o comando abaixo para verificar o conteúdo do ConfigMap criado:
+
+  ```bash
+  kubectl get configmap nexus-config -n nexus-3 -o yaml
+  ```
+
+### Configurando o Deployment do Nexus
+
+* Verifique se o seu arquivo de deployment (`nexus-deployment.yaml`) está configurado corretamente, garantindo que:
+
+  * O ConfigMap está sendo montado corretamente.
+  * O volume para o arquivo `nexus.secrets.json` está apontando para o caminho correto.
+  * A variável de ambiente `NEXUS_SECRETS_KEY_FILE` está configurada para o caminho do arquivo de chave.
+
+### Exemplo de Deployment Testado e Funcional:
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -105,6 +122,13 @@ spec:
           configMap:
             name: nexus-config
 ```
+
+### Explicação dos Componentes:
+
+* **`NEXUS_SECRETS_KEY_FILE`**: Indica o caminho onde o Nexus deve buscar o arquivo de chave de encriptação.
+* **`nexus-config-volume`** e **`nexus-secrets-volume`**: São os volumes que montam os arquivos de configuração e chave de encriptação diretamente no container.
+* **`subPath`**: Garante que apenas o arquivo específico do ConfigMap será montado no caminho especificado.
+
 
 ## 5. Recriando Recursos (Opcional)
 
