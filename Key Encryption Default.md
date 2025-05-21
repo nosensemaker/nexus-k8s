@@ -111,6 +111,15 @@ spec:
             - name: nexus-secrets-volume
               mountPath: /opt/sonatype/nexus/etc/nexus.secrets.json
               subPath: nexus.secrets.json
+          resources:
+            requests:
+              cpu: "4"
+              memory: "4Gi"
+            limits:
+              memory: "4Gi"
+              cpu: "4"
+          ports:
+            - containerPort: 8081
       volumes:
         - name: nexus-data
           persistentVolumeClaim:
