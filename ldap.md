@@ -1,10 +1,10 @@
-# 🎯 Integração do Nexus Repository com LDAP
+# Integração do Nexus Repository com LDAP
 
 Este guia tem como objetivo documentar passo a passo como realizar a configuração de autenticação via LDAP no **Nexus Repository**.
 
 ---
 
-## 📚 Pré-requisitos
+## Pré-requisitos
 
 - Servidor LDAP ativo e funcional.
 - Acesso administrativo ao Nexus Repository.
@@ -17,9 +17,9 @@ Este guia tem como objetivo documentar passo a passo como realizar a configuraç
 
 ---
 
-## 🔧 Configurando a Conexão LDAP
+##  Configurando a Conexão LDAP
 
-### 1️⃣ Acessando as configurações
+### 1 Acessando as configurações
 
 - No menu lateral do Nexus, acesse:
   
@@ -29,7 +29,7 @@ Clique em **"Create connection"**.
 
 ---
 
-### 2️⃣ Configurações Gerais da Conexão
+### 2 Configurações Gerais da Conexão
 
 | Campo                     | Valor                                      |
 |---------------------------|---------------------------------------------|
@@ -54,7 +54,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ##  Configurando o Mapeamento de Usuários
 
-### 1️⃣ Template de Configuração
+### 1 Template de Configuração
 
 | Campo                        | Valor           |
 |------------------------------|-----------------|
@@ -62,7 +62,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 2️⃣ Dados de Usuário
+### 2 Dados de Usuário
 
 | Campo                                   | Valor                                     |
 |-----------------------------------------|--------------------------------------------|
@@ -73,7 +73,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 3️⃣ Atributos do LDAP
+### 3 Atributos do LDAP
 
 | Campo                    | Valor         | Descrição                                        |
 |--------------------------|---------------|--------------------------------------------------|
@@ -84,7 +84,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 4️⃣ Mapeamento de Grupos
+### 4 Mapeamento de Grupos
 
 | Campo                           | Valor             |
 |---------------------------------|-------------------|
@@ -94,7 +94,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-## ✅ Verificações
+## Verificações
 
 Após preencher todas as informações:
 
