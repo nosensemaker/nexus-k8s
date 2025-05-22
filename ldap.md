@@ -40,7 +40,7 @@ Clique em **"Create connection"**.
 | **Username or DN**        | cn=admin,dc=in,dc=iti,dc=br                 |
 | **Password**              | 🔒 (Senha do usuário `cn=admin`)            |
 
-#### 🔥 Configurações de Timeout
+####  Configurações de Timeout
 
 | Campo    | Valor         |
 |----------|----------------|
@@ -52,7 +52,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-## 👥 Configurando o Mapeamento de Usuários
+##  Configurando o Mapeamento de Usuários
 
 ### 1️⃣ Template de Configuração
 
@@ -101,42 +101,7 @@ Após preencher todas as informações:
 - Clique em **"Verify user mapping"** para validar se os usuários estão sendo listados corretamente.
 - Utilize **"Verify login"** para testar se um usuário específico consegue se autenticar.
 
----
 
-## 🐞 Possíveis Erros e Soluções
 
-| Erro                                          | Solução                                                    |
-|------------------------------------------------|------------------------------------------------------------|
-| **Failed to connect to LDAP Server**          | Verifique IP, porta, usuário de bind e senha.              |
-| **User cannot be authenticated**              | Confirme DN, senha correta e se o usuário está no OU correto. |
-| **LDAP search does not return users**         | Verifique `User relative DN`, `User filter` e atributos.   |
 
----
 
-## 🏁 Conclusão
-
-Após concluir essa configuração, os usuários do seu servidor LDAP poderão realizar login diretamente no Nexus Repository, além de poder mapear grupos para controle de permissões.
-
----
-
-## 🖥️ Exemplo Visual
-
-### 🔗 Conexão LDAP
-
-![Conexão LDAP](./5115b49b-7c2a-45d6-86d7-a9637c1b6bea.png)
-
-### 👥 Mapeamento de Usuários
-
-![Mapeamento de Usuários](./c5ae181a-51b3-4b5c-ab49-47e70889b4c5.png)
-
----
-
-## 👩‍💻 Autor
-
-Desenvolvido por [Seu Nome].
-
----
-
-## 📝 Licença
-
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
