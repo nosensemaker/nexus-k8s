@@ -19,7 +19,7 @@ Este guia tem como objetivo documentar passo a passo como realizar a configuraç
 
 ##  Configurando a Conexão LDAP
 
-### 1 Acessando as configurações
+### 1 - Acessando as configurações
 
 - No menu lateral do Nexus, acesse:
   
@@ -29,7 +29,7 @@ Clique em **"Create connection"**.
 
 ---
 
-### 2 Configurações Gerais da Conexão
+### 2 - Configurações Gerais da Conexão
 
 | Campo                     | Valor                                      |
 |---------------------------|---------------------------------------------|
@@ -54,7 +54,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ##  Configurando o Mapeamento de Usuários
 
-### 1 Template de Configuração
+### 1 - Template de Configuração
 
 | Campo                        | Valor           |
 |------------------------------|-----------------|
@@ -62,7 +62,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 2 Dados de Usuário
+### 2 - Dados de Usuário
 
 | Campo                                   | Valor                                     |
 |-----------------------------------------|--------------------------------------------|
@@ -73,7 +73,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 3 Atributos do LDAP
+### 3 - Atributos do LDAP
 
 | Campo                    | Valor         | Descrição                                        |
 |--------------------------|---------------|--------------------------------------------------|
@@ -84,7 +84,7 @@ Após preencher, clique em **"Verify connection"** para testar a conexão com o 
 
 ---
 
-### 4 Mapeamento de Grupos
+### 4 - Mapeamento de Grupos
 
 | Campo                           | Valor             |
 |---------------------------------|-------------------|
