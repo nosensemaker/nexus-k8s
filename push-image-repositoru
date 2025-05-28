@@ -1,0 +1,5 @@
+docker build --build-arg BUILD_MODE=full -t ityhy:3.8.1 .
+docker login 192.168.17.175:30500
+docker tag ityhy:3.8.1 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
+docker push 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
+
