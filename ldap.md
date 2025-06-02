@@ -34,7 +34,7 @@ Clique em **"Create connection"**.
 | Campo                     | Valor                                      |
 |---------------------------|---------------------------------------------|
 | **Name**                  | ldap connection                             |
-| **LDAP server address**   | ldap://ip:porta                             |
+| **LDAP server address**   | ldap://ip:389                               |
 | **Search base DN**        | dc=example,dc=example,dc=br                 |
 | **Authentication method** | Simple Authentication                       |
 | **Username or DN**        | cn=admin,dc=in,dc=iti,dc=br                 |
