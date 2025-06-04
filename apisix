@@ -1,0 +1,35 @@
+helm repo add apisix https://charts.apiseven.com
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+
+chmod 700 get_helm.sh
+./get_helm.sh
+
+helm repo add apisix https://charts.apiseven.com
+
+
+
+
+
+helm repo update
+
+kubectl create namespace apisix
+
+helm install apisix apisix/apisix --set ingressController.enabled=true -n apisix
+
+
+helm install apisix apisix/apisix --namespace apisix --set etcd.enabled=true --set ingressController.enabled=true
+
+
+helm install apisix-ingress-controller apisix/apisix-ingress-controller --namespace apisix
+
+
+helm repo add apache https://charts.apiseven.com
+
+helm list -n apisix
+helm get values apisix-ingress-controller -n apisix > ingress-values.yaml
+
+
+
+helm upgrade apisix-ingress-controller apache/apisix-ingress-controller   -n apisix -f default-values.yaml
+
+
