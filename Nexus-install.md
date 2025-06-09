@@ -138,8 +138,77 @@ spec:
 * **`nexus-config-volume`** e **`nexus-secrets-volume`**: São os volumes que montam os arquivos de configuração e chave de encriptação diretamente no container.
 * **`subPath`**: Garante que apenas o arquivo específico do ConfigMap será montado no caminho especificado.
 
+## 5. Criando Service
 
-## 5. Recriando Recursos (Opcional)
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexus-service
+  namespace: nexus-3
+spec:
+  type: NodePort
+  selector:
+    app: setup
+  ports:
+    - port: 8081
+      targetPort: 8081
+      nodePort: 32000
+```
+
+### Explicação 
+
+- `type: NodePort:` expõe o serviço para fora do cluster através da porta `32000` no IP do nó.
+
+- `port:` porta acessível dentro do cluster.
+
+- `targetPort:` porta exposta pelo container do Nexus.
+
+- `nodePort:` porta do nó Kubernetes pela qual o serviço pode ser acessado externamente (ex: `http://<IP_DO_NO>:32000`).
+
+- `selector`: garante que o tráfego será roteado corretamente para os pods com o label `app: setup`.
+
+## 6. Criando Volume Persistente (PVC)
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nexus-data-pvc
+  namespace: nexus-3
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-path
+```
+### Explicação
+
+- `accessModes`: ReadWriteOnce: permite que apenas um pod monte o volume para leitura e escrita.
+
+- `resources.requests.storage: 10Gi`: reserva 10 GB de espaço em disco.
+
+- `storageClassName`: local-path: define que o volume será criado com a `StorageClass` local-path, comum em clusters locais.
+
+Esse PVC será usado no deployment, dentro do volume nexus-data:
+
+```
+volumes:
+  - name: nexus-data
+    persistentVolumeClaim:
+      claimName: nexus-data-pvc
+```
+
+E montado no container:
+
+```
+volumeMounts:
+  - name: nexus-data
+    mountPath: /nexus-data
+```
+## 7. Recriando Recursos (Opcional)
 
 Para garantir que tudo funcione corretamente, você pode recriar os recursos:
 
@@ -161,7 +230,7 @@ kubectl apply -f nexus-deployment.yaml -n nexus-3
 kubectl apply -f nexus-service.yaml -n nexus-3
 ```
 
-## 6. Verificação
+## 8. Verificação
 
 Para verificar se tudo está funcionando corretamente:
 
@@ -190,7 +259,7 @@ kubectl get all -n nexus-3
 202 - Re-encrypt task successfully submitted
 ```
 
-7. No status, a mensagem esperada é:
+9. No status, a mensagem esperada é:
 
 ```
 Re-encryption required: All secrets are using the same encryption key. Re-encryption is not required.
