@@ -30,6 +30,11 @@ Faça login no Nexus usando o IP e porta do repositório Docker:
 docker login 192.168.19.203:30500
 docker login nexus-repo.iti.br
 ```
+
+```bash
+docker logout nexus-repo.iti.br
+```
+> Logout é para deslogar do Nexus.
 > É o service do nodePort, acessivel apenas por IP.
 > O domain configurado pelo ingress.
 > Você será solicitado a inserir seu nome de usuário e senha do Nexus.
