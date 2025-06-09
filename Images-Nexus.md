@@ -15,8 +15,9 @@
 Crie a imagem Docker usando `--build-arg` para passar o modo de build:
 
 ```bash
-docker build --build-arg BUILD_MODE=full -t ityhy:3.8.1 .
+docker build --build-arg BUILD_MODE=full -t  assinador:2.17.3 .
 ```
+> o build_mode é o parametro passado dentro do Dockerfile.
 > Se certifique de executar o comando no diretório que contenha o Dockerfile. 
 
 ---
@@ -26,9 +27,11 @@ docker build --build-arg BUILD_MODE=full -t ityhy:3.8.1 .
 Faça login no Nexus usando o IP e porta do repositório Docker:
 
 ```bash
-docker login 192.168.17.175:30500
+docker login 192.168.19.203:30500
+docker login nexus-repo.iti.br
 ```
-
+> É o service do nodePort, acessivel apenas por IP.
+> O domain configurado pelo ingress.
 > Você será solicitado a inserir seu nome de usuário e senha do Nexus.
 
 ---
@@ -43,12 +46,14 @@ A imagem precisa ser tagueada com o caminho completo do repositório Nexus:
 docker images
 
 ````
-2. Faça a tag: primeiro defina a imagem usada e em seguida o caminho que ela vai ficar taggeada
-para ser enviada ao nexus: o caminho precisa conter o nome do repositorio que ela vai ficar.
+2. No exemplo abaixo:
+- `ityhy:3.8.1` é a imagem que você acabou de criar no passo 1.
+- `docker-hosted` é o nome do repositório no Nexus.
+- O caminho completo define onde a imagem será armazenada no servidor.
 
 ```bash
 
-docker tag ityhy:3.8.1 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
+docker tag assinador:2.17.3 nexus-repo.iti.br/docker-images/assinador:2.17.3
 
   ````
 
@@ -59,7 +64,7 @@ docker tag ityhy:3.8.1 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
 Depois de taguear, envie a imagem para o repositório:
 
 ```bash
-docker push 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
+docker push nexus-repo.iti.br/docker-images/assinador:2.17.3
 ```
 
 ---
