@@ -27,7 +27,7 @@ docker build --build-arg BUILD_MODE=full -t  assinador:2.17.3 .
 Faça login no Nexus usando o IP e porta do repositório Docker:
 
 ```bash
-docker login 192.168.19.203:30500
+docker login 192.168.19.203:30500 -> interno
 docker login nexus-repo.iti.br
 ```
 
@@ -54,11 +54,12 @@ docker images
 2. No exemplo abaixo:
 - `ityhy:3.8.1` é a imagem que você acabou de criar no passo 1.
 - `docker-hosted` é o nome do repositório no Nexus.
+- `ityhy` pasta que vai ser criada dentro do Nexus.
 - O caminho completo define onde a imagem será armazenada no servidor.
 
 ```bash
 
-docker tag assinador:2.17.3 nexus-repo.iti.br/docker-images/assinador:2.17.3
+docker tag assinador:2.17.3 nexus-repo.iti.br/docker-images/ityhy/ityhy:3.8.1
 
   ````
 
@@ -69,7 +70,7 @@ docker tag assinador:2.17.3 nexus-repo.iti.br/docker-images/assinador:2.17.3
 Depois de taguear, envie a imagem para o repositório:
 
 ```bash
-docker push nexus-repo.iti.br/docker-images/assinador:2.17.3
+docker push nexus-repo.iti.br/docker-images/pasta/assinador:tag
 ```
 
 ---
@@ -79,7 +80,7 @@ docker push nexus-repo.iti.br/docker-images/assinador:2.17.3
 Para baixar a imagem em outra máquina (ou na mesma), use:
 
 ```bash
-docker pull nexus_domain_or_ip:porta/path_to/ityhy:3.8.1
+docker pull nexus_domain_or_ip:porta/path_to/pasta/imagesname:tag
 ```
 
 > Lembre-se de fazer login com `docker login` se o repositório exigir autenticação.
@@ -93,7 +94,7 @@ docker pull nexus_domain_or_ip:porta/path_to/ityhy:3.8.1
 Você pode testar a imagem com:
 
 ```bash
-docker run --rm -it 192.168.17.175:30500/docker-hosted/ityhy:3.8.1
+docker run --rm -it nexus_domain_or_ip:porta/path_to/ityhy/imagesname:tag
 ```
 
 
