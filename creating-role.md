@@ -33,6 +33,7 @@ Este guia explica como criar uma **role personalizada** no Nexus Repository Mana
    - `nx-repository-view-maven2-meu-repo-edit`
 
 > **Nota**: Troque `maven2` pelo tipo do seu repositório se for diferente (ex: `raw`, `npm`, etc.).
+
 > read permite baixar ( pull )
 > add permite enviar ( push )
 > edit permite sobrescrever artefatos
