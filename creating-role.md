@@ -34,13 +34,13 @@ Este guia explica como criar uma **role personalizada** no Nexus Repository Mana
 
 > **Nota**: Troque `maven2` pelo tipo do seu repositório se for diferente (ex: `raw`, `npm`, etc.).
 
-> read permite baixar ( pull )
+> Read: permite baixar ( pull )
 
-> add permite enviar ( push )
+> Add: permite enviar ( push )
 
-> edit permite sobrescrever artefatos
+> Edit: permite sobrescrever artefatos
 
-> browser permite navegar.
+> Browser: permite navegar.
 
 
 6. Clique em **Create role** para salvar.
